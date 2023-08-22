@@ -1,1 +1,1 @@
-export { NodalAnalysis } from './NodalAnalysis'
+export { MainPage as MainPage } from "./MainPage";

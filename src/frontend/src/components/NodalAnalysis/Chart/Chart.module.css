@@ -1,0 +1,15 @@
+.chartContainer{
+    max-width: 70%;
+    flex: 3;
+}
+
+.nodalAnalysisContainer{
+    display: flex;
+    width: 100%;
+}
+
+.resultContainer{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
