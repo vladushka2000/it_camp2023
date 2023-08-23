@@ -1,0 +1,20 @@
+version: '3'
+services:
+  dtp-frontend:
+    container_name: dtp-frontend
+    image: dtp-frontend:1
+    build:
+      context: ../src/frontend
+      dockerfile: ../../docker/Frontend.Dockerfile
+    ports:
+      - 3000:80
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+    networks:
+      - local_default
+
+networks:
+  local_default:
+    external: false

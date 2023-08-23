@@ -1,7 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 type responseType = {
-  point: { p_wf: string; q_liq: string };
+  p_coord: string; 
+  q_coord: string;
   ipr: {
     q_liq: string[];
     p_wf: string[];
