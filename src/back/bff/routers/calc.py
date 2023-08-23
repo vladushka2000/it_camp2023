@@ -27,7 +27,14 @@ def get_intersection_point(
     )
     node_data = get_node_data(node_input_data)
 
-    return node_data
+    response = cr.CalcResponse(
+        p_coord=node_data.p_coord,
+        q_coord=node_data.q_coord,
+        vlp=vlp_data,
+        ipr=ipr_data
+    )
+
+    return response
 
 
 def get_ipr_data(init_data: cr.CalcRequest):

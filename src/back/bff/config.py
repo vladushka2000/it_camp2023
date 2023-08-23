@@ -10,7 +10,7 @@ class Config(BaseSettings):
     vlp_host: str = os.environ.get("vlp_host", "http://localhost:8002")
     node_name: str = os.environ.get("node_name", "node_service")
     node_host: str = os.environ.get("node_host", "http://localhost:8004")
-    redis_host: str = os.environ.get("redis_host", "redis")
+    redis_host: str = os.environ.get("redis_host", "localhost")
 
 
 config = Config()
