@@ -51,7 +51,7 @@ def calc_pvt(data):
 
     # Расчет общего расхода смеси
     v_liq_pt = v_oil_pt + v_wat_st
-    v_mix_pt = v_liq_pt + v_gas_pt
+    v_mix_pt = (v_liq_pt + v_gas_pt) / (24 * 60 * 60)
 
     # Расчет плотности насыщенной нефти:
     # 1. Расчет объемного коэффициента нефти
