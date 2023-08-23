@@ -165,6 +165,7 @@ export const {
     changePRes,  
     clearAllMetrics,  
     checkMetrics,
+    setData,
  } = nodalAnalysisSlice.actions;
 
 export default nodalAnalysisSlice.reducer;

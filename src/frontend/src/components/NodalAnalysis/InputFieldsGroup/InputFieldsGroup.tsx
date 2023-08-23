@@ -94,8 +94,6 @@ export function InputFieldsGroup() {
             placeholder="Введите значение"
             value={getValue(nodalAnalysisState.inclinometry.MD)}
               size={textFieldSize}
-              type="number"
-              incrementButtons={false}
               onChange={({ value }) => {
                 dispatch(changeMDAction(value));
               }}></TextField>
@@ -103,8 +101,6 @@ export function InputFieldsGroup() {
             placeholder="Введите значение"
             value={getValue(nodalAnalysisState.inclinometry.TVD)}
               size={textFieldSize}
-              type="number"
-              incrementButtons={false}
               onChange={({ value }) => {
                 dispatch(changeTVDAction(value));
               }}></TextField>
