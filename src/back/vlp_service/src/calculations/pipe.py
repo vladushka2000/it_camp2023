@@ -3,6 +3,7 @@ import math as mt
 from functools import lru_cache
 
 import numpy as np
+from config import PVT_HOST
 from scipy.integrate import solve_ivp
 from scipy.interpolate import interp1d
 import httpx
@@ -87,7 +88,7 @@ def _calc_grad(h, pt, d, geotemp_grad, pvt, incl, qliq, client):
         "QLiq": qliq,
     }
 
-    r = client.post(f"http://localhost:8001/calculator", json=prms)
+    r = client.post(f"http://{PVT_HOST}:8001/calculator", json=prms)
     r = json.loads(r.text)
     qm, rhom, mum = r["QMix"], r['RhoMix'], r['MuMix']
     vsm = _calc_vm(qm, d)
