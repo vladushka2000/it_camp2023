@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  ipr:
+    container_name: ipr
+    build:
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "8003:8003"
