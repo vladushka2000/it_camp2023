@@ -21,10 +21,10 @@ type dataType = {
     TVD: string | string[] | null;
   };
   casing: {
-    casing_d: string | null;
+    d: string | null;
   };
   tubing: {
-    tubing_d: string | null;
+    d: string | null;
     h_mes: string | null;
   };
   pvt: {
@@ -34,6 +34,7 @@ type dataType = {
     gamma_gas: string | null;
     gamma_wat: string | null;
     t_res: string | null;
+    pb: string | null;
   };
   p_wh: string | null;
   geo_grad: string | null;
@@ -55,7 +56,7 @@ async function sendData(data: dataType) {
         },
       })
       .then(function (response) {
-        dispatch(setDataAction(response));
+        dispatch(setDataAction(response.data));
       })
       .catch(function (error) {
         console.log(error);
@@ -68,10 +69,10 @@ async function sendData(data: dataType) {
         TVD: null,
       },
       casing: {
-        casing_d: null,
+        d: null,
       },
       tubing: {
-        tubing_d: null,
+        d: null,
         h_mes: null,
       },
       pvt: {
@@ -81,6 +82,7 @@ async function sendData(data: dataType) {
         gamma_gas: null,
         gamma_wat: null,
         t_res: null,
+        pb: null,
       },
       p_wh: null,
       geo_grad: null,
@@ -92,8 +94,8 @@ async function sendData(data: dataType) {
     nodalAnalysisState.inclinometry.MD && nodalAnalysisState.inclinometry.MD.split(",");
     data.inclinometry.TVD =
     nodalAnalysisState.inclinometry.TVD && nodalAnalysisState.inclinometry.TVD.split(",");
-    data.casing.casing_d = nodalAnalysisState.casing.casing_d;
-    data.tubing.tubing_d = nodalAnalysisState.tubing.tubing_d;
+    data.casing.d = nodalAnalysisState.casing.casing_d;
+    data.tubing.d = nodalAnalysisState.tubing.tubing_d;
     data.tubing.h_mes = nodalAnalysisState.tubing.h_mes;
     data.pvt.wct = nodalAnalysisState.pvt.wct;
     data.pvt.rp = nodalAnalysisState.pvt.rp;
@@ -106,6 +108,8 @@ async function sendData(data: dataType) {
     data.h_res = nodalAnalysisState.h_res;
     data.pi = nodalAnalysisState.pi;
     data.p_res = nodalAnalysisState.p_res;
+    data.pvt.pb = "150";
+
 
     sendData(data);
   }  
@@ -147,7 +151,7 @@ async function sendData(data: dataType) {
           </div>        
           <div className={css.inputContainerFooter}>        
                 <Button label="Очистить" view="secondary" size="s" onClick={() => dispatch(clearAllMetrics())}/>
-                <Button label="Расчитать" view="primary" size="s" onClick={() => calculate()} disabled={!calculateBtnIsEnable}/>
+                <Button label="Расчитать" view="primary" size="s" onClick={() => calculate()}/>
             </div>      
         </div>
         <div className={css.chartContainer}>
