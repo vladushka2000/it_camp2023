@@ -2,6 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { store } from "./store/store";
+import { Provider } from "react-redux";
+
 import { Theme, presetGpnDefault } from '@consta/uikit/Theme';
 
 
@@ -11,7 +14,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Theme preset={presetGpnDefault}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </Theme>
   </React.StrictMode>
 );

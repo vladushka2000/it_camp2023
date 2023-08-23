@@ -1,0 +1,56 @@
+.nodalAnalysis{
+    padding: 0 var(--padding);
+    display: flex;    
+    flex-wrap: wrap;
+    height: calc(100vh - var(--headerHeight) - var(--footerHeight));
+}
+
+.inputContainer{
+    display: flex;
+    height: 85vh;/*calc(100vh - var(--headerHeight) - var(--footerHeight)); */
+    flex-direction: column;
+    border: 1px black solid;
+}
+
+.inputContainerHeader{
+    padding: 1rem;
+}
+
+.inputContainerFooter{
+    display: flex;
+    margin: 2rem 1rem 1rem 1rem;
+    justify-content: space-between;
+}
+
+.buttonGroup{
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.textFieldsContainer{
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.textFieldsGroup{    
+    display: flex;
+    flex-direction: column;
+    padding: 0 3rem;
+    gap: 1rem;
+}
+
+.chartContainer{
+    max-width: 70%;
+    flex: 3;
+}
+
+.nodalAnalysisContainer{
+    display: flex;
+    width: 100%;
+}
