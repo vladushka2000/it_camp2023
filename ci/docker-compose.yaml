@@ -1,0 +1,72 @@
+version: '3'
+services:
+
+  bff:
+    container_name: bff
+    build:
+      context: ../src/back/bff
+      dockerfile: Dockerfile
+    environment:
+      ipr_host: http://host.docker.internal:8003
+      vlp_host: http://host.docker.internal:8002
+      node_host: http://host.docker.internal:8004
+      redis_host: redis
+    ports:
+      - 8005:8005
+
+    depends_on:
+      - redis
+
+  vlp:
+    container_name: vlp
+    build:
+      context: ../src/back/vlp_service/
+      dockerfile: Dockerfile
+    ports:
+      - 8002:8002
+    environment:
+      PVT_HOST: pvt
+      DEBUG: 1
+
+    depends_on:
+      - redis
+
+  ipr:
+    container_name: ipr
+    build:
+      context: ../src/back/ipr_service
+      dockerfile: Dockerfile
+    ports:
+      - 8003:8003
+
+    depends_on:
+      - redis
+
+  pvt:
+    container_name: pvt
+    build:
+      context: ../src/back/pvt
+      dockerfile: Dockerfile
+    ports:
+      - 8001:8001
+
+    depends_on:
+      - redis
+
+  node:
+    container_name: node
+    build:
+      context: ../src/back/node
+      dockerfile: Dockerfile
+    ports:
+      - 8004:8004
+
+    depends_on:
+      - redis
+
+  redis:
+    container_name: redis
+    image: "redis:alpine"
+
+    ports:
+      - 6379:6379
