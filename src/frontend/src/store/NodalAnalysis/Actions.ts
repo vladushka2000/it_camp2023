@@ -61,7 +61,10 @@ export const changePResAction =
   (value: string | null) => (dispatch: AppDispatch) =>
     dispatch(nodalAnalysisSlice.actions.changePRes(value));
 
-
 export const clearAllMetrics = 
   () => (dispatch: AppDispatch) =>
     dispatch(nodalAnalysisSlice.actions.clearAllMetrics());
+
+export const setDataAction = 
+  (value: any) => (dispatch: AppDispatch) =>
+    dispatch(nodalAnalysisSlice.actions.setData(value));

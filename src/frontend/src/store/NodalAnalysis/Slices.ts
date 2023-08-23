@@ -1,5 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+type responseType = {
+  point: { p_wf: string; q_liq: string };
+  ipr: {
+    q_liq: string[];
+    p_wf: string[];
+  };
+  vlp: {
+    q_liq: string[];
+    p_wf: string[];
+  };
+};
+
 export interface NodalAnalysisState {
     inclinometry: {
         MD: string | null;
@@ -25,6 +37,7 @@ export interface NodalAnalysisState {
       h_res: string | null;
       pi: string | null;
       p_res: string | null;
+      data: responseType | null;
 }
 
 const initialState: NodalAnalysisState = {
@@ -52,6 +65,7 @@ const initialState: NodalAnalysisState = {
       h_res: null,
       pi: null,
       p_res: null,
+      data: null,
 };
 
 export const nodalAnalysisSlice = createSlice({
@@ -106,7 +120,10 @@ export const nodalAnalysisSlice = createSlice({
       },
       changePRes: (state, action: PayloadAction<string | null>) => {
         state.p_res = action.payload;
-      },  
+      },
+      setData: (state, action: PayloadAction<any>) => {
+        state.data = action.payload;
+      },
       clearAllMetrics: (state) => {
         state.inclinometry.MD = null;
         state.inclinometry.TVD = null;

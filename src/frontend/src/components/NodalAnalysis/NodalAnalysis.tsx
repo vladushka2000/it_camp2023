@@ -12,7 +12,8 @@ import css from "./NodalAnalysis.module.css";
 export function NodalAnalysis() {
 
   const dispatch = useAppDispatch();
-  
+  const calculate = function(){
+  }  
 
   return (
     <div className={css.nodalAnalysis}>
@@ -30,7 +31,7 @@ export function NodalAnalysis() {
           </div>        
           <div className={css.inputContainerFooter}>        
                 <Button label="Очистить" view="secondary" size="s" onClick={() => dispatch(clearAllMetrics())}/>
-                <Button label="Расчитать" view="primary" size="s"/>
+                <Button label="Расчитать" view="primary" size="s" onClick={() => calculate()}/>
             </div>      
         </div>
         <div className={css.chartContainer}>
